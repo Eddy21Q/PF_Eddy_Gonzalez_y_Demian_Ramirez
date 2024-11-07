@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Eliminar Guía</title>
     <style>
-        /* Estilos básicos para una apariencia atractiva */
+        /* Estilos básicos para una apariencia atractivaaaaaa */
         body {
             font-family: Arial, sans-serif;
             background-image: url('images/image3.jpg'); /* Imagen de fondo */
