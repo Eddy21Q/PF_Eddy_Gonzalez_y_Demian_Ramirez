@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.proyecto.AppTest" time="0.063" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.proyecto.AppTest" time="0.074" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CR"/>
     <property name="sun.boot.library.path" value="c:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\josue\AppData\Local\Temp\surefire6577747195857703449\surefirebooter7076461848949629952.jar C:\Users\josue\AppData\Local\Temp\surefire6577747195857703449 2024-11-05T19-53-53_386-jvmRun1 surefire11781502910572418192tmp surefire_015264399165328688852tmp"/>
+    <property name="sun.java.command" value="C:\Users\josue\AppData\Local\Temp\surefire10498701949428087271\surefirebooter5414255794502277233.jar C:\Users\josue\AppData\Local\Temp\surefire10498701949428087271 2024-11-08T21-07-49_646-jvmRun1 surefire10657594753102440737tmp surefire_05629494801402205067tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\josue\OneDrive\Documentos\examenbd\target\test-classes;C:\Users\josue\OneDrive\Documentos\examenbd\target\classes;C:\Users\josue\.m2\repository\javax\servlet\javax.servlet-api\4.0.1\javax.servlet-api-4.0.1.jar;C:\Users\josue\.m2\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.3\javax.servlet.jsp-api-2.3.3.jar;C:\Users\josue\.m2\repository\javax\servlet\jsp\jstl\jstl-api\1.2\jstl-api-1.2.jar;C:\Users\josue\.m2\repository\javax\servlet\servlet-api\2.5\servlet-api-2.5.jar;C:\Users\josue\.m2\repository\javax\servlet\jsp\jsp-api\2.1\jsp-api-2.1.jar;C:\Users\josue\.m2\repository\org\apache\taglibs\taglibs-standard-impl\1.2.5\taglibs-standard-impl-1.2.5.jar;C:\Users\josue\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.37\tomcat-embed-core-9.0.37.jar;C:\Users\josue\.m2\repository\org\apache\tomcat\tomcat-annotations-api\9.0.37\tomcat-annotations-api-9.0.37.jar;C:\Users\josue\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\josue\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\josue\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\josue\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\josue\AppData\Local\Temp\surefire6577747195857703449\surefirebooter7076461848949629952.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\josue\AppData\Local\Temp\surefire10498701949428087271\surefirebooter5414255794502277233.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -58,5 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.proyecto.AppTest" time="0.005"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.proyecto.AppTest" time="0.004"/>
 </testsuite>

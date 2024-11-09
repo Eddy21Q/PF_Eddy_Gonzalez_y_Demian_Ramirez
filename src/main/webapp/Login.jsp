@@ -1,18 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <%
-    String validUser = "usuario";  // Cambia esto por el usuario correcto
-    String validPassword = "contraseña"; // Cambia esto por la contraseña correcta
-
     String username = request.getParameter("username");
     String password = request.getParameter("password");
+    boolean isAuthenticated = false;
 
     if (username != null && password != null) {
-        if (username.equals(validUser) && password.equals(validPassword)) {
-            session.setAttribute("user", username); // Guarda el usuario en la sesión
-            response.sendRedirect("PaginaMenu.jsp"); // Redirige a la página principal
-            return;
-        } else {
-            request.setAttribute("error", "Usuario o contraseña incorrectos.");
+        String jdbcUrl = "jdbc:mysql://localhost/administracionturismo";
+        String dbUser = "root";
+        String dbPassword = "josueProgramacion2";
+        
+        Connection conn = null;
+        CallableStatement stmt = null;
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
+
+            stmt = conn.prepareCall("{CALL sp_verificarCredenciales(?, ?, ?)}");
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            stmt.registerOutParameter(3, java.sql.Types.INTEGER);
+
+            stmt.execute();
+
+            int resultado = stmt.getInt(3);
+            if (resultado == 1) {
+                isAuthenticated = true;
+                session.setAttribute("user", username);
+                response.sendRedirect("PaginaMenu.jsp");
+                return;
+            } else {
+                request.setAttribute("error", "Usuario o contraseña incorrectos.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) try { stmt.close(); } catch (SQLException ignored) {}
+            if (conn != null) try { conn.close(); } catch (SQLException ignored) {}
         }
     }
 
@@ -23,8 +48,10 @@
 <head>
     <meta charset="UTF-8">
     <title><%= user == null ? "Iniciar Sesión" : "Página Principal" %></title>
+    <!-- Importa Font Awesome para usar iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Estilo básico para el cuerpo y el fondo */
+        /* Estilos para fondo y formulario */
         html, body {
             height: 100%;
             margin: 0;
@@ -35,21 +62,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('images/image2.jpg'); /* La imagen de fondo */
+            background-image: url('images/image2.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        /* Estilo del formulario con aspecto tecnológico */
         form {
-            background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+            background: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.6); /* Sombra color neón */
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.6);
             max-width: 400px;
             width: 100%;
-            display: none; /* Oculto por defecto, se mostrará si no hay usuario en sesión */
+            display: none;
             color: white;
             position: relative;
         }
@@ -61,7 +87,7 @@
             left: -5px;
             right: -5px;
             bottom: -5px;
-            background: linear-gradient(45deg, cyan, magenta); /* Bordes de neón */
+            background: linear-gradient(45deg, cyan, magenta);
             z-index: -1;
             border-radius: 10px;
             filter: blur(15px);
@@ -92,7 +118,7 @@
 
         input[type="text"]::placeholder,
         input[type="password"]::placeholder {
-            color: #888; /* Placeholder gris claro */
+            color: #888;
         }
 
         button {
@@ -104,20 +130,22 @@
             cursor: pointer;
             width: 100%;
             font-size: 16px;
-            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-        button:hover {
-            background-color: #0056b3;
+        
+        button i {
+            font-size: 1.2em; /* Tamaño del icono */
         }
 
-        /* Mensaje de error */
         .error-message {
             color: red;
             margin-top: 10px;
             font-weight: bold;
         }
 
-        /* Estilo del contenedor de bienvenida */
         .container {
             text-align: center;
             background-color: rgba(0, 0, 0, 0.8);
@@ -141,7 +169,10 @@
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
             
-            <button type="submit">Iniciar Sesión</button>
+            <!-- Botón con icono -->
+            <button type="submit">
+                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            </button>
             
             <% 
                 String error = (String) request.getAttribute("error"); 
@@ -155,7 +186,6 @@
     %>
         <div class="container" style="display: block;">
             <h1>Bienvenido, <%= user %>!</h1>
-            <!-- Aquí puedes añadir más contenido o botones -->
         </div>
     <%
         }
