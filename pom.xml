@@ -42,20 +42,20 @@
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-core</artifactId>
-      <version>9.0.37</version>
+        <version>9.0.41</version> 
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.2</version> <!-- Actualización a la versión más reciente de JUnit 4 -->
       <scope>test</scope>
     </dependency>
-    
-    <!-- Añadir dependencia de MySQL Connector -->
+
+    <!-- Dependencia de MySQL Connector -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.33</version> <!-- Usa la versión más reciente -->
+      <version>8.0.33</version> <!-- Mantener la versión más reciente disponible -->
     </dependency>
   </dependencies>
 
@@ -79,7 +79,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
+        <version>3.10.1</version> <!-- Actualización del plugin de compilación -->
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -89,7 +89,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
+        <version>3.2.0</version> <!-- Actualización a la versión más reciente -->
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -104,7 +104,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.7.1</version>
+        <version>3.9.1</version> <!-- Actualización de maven-site-plugin -->
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

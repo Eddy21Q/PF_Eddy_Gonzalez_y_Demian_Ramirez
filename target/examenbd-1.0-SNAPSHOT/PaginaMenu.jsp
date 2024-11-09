@@ -34,6 +34,7 @@
         header nav {
             display: flex;
             justify-content: center;
+            position: relative;
         }
 
         header nav a {
@@ -47,27 +48,69 @@
             text-decoration: underline;
         }
 
-        /* Slider */
-        .slider {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
+        /* Menú desplegable */
+        .dropdown {
             position: relative;
+            display: inline-block;
         }
 
-        .slider img {
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #007bff;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Galería de imágenes con scroll horizontal */
+        .gallery {
+            display: flex;
+            overflow-x: scroll;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 60%;
+            margin-right: 20px;
+            max-height: 300px;
+        }
+
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            animation: slide 15s infinite;
+            border-radius: 10px;
         }
 
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-100%); }
-            50% { transform: translateX(-200%); }
-            75% { transform: translateX(-300%); }
-            100% { transform: translateX(0); }
+        .gallery::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery::-webkit-scrollbar-thumb {
+            background: #007bff;
+            border-radius: 4px;
+        }
+
+        .gallery::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
 
         /* Paquetes turísticos */
@@ -151,15 +194,25 @@
             <a href="Hoteles.jsp">Hoteles</a>
             <a href="Contacto.jsp">Contacto</a>
             <a href="AcercaDe.jsp">Acerca de</a>
+
+            <!-- Menú desplegable Mantenimiento de Tablas -->
+            <div class="dropdown">
+                <a href="javascript:void(0)">Mantenimiento de Tablas</a>
+                <div class="dropdown-content">
+                    <a href="MantenimientoGuias.jsp?tipo=guia">Tabla Guias</a>
+                    <a href="MantenimientoTuristas.jsp?tipo=turista">Tabla Turistas</a>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <!-- Slider de imagenes -->
-    <div class="slider">
-        <img src="images/image3.jpg" alt="Destino 1">
-        <img src="images/image4.jpg" alt="Destino 2">
-        <img src="images/image5.jpg" alt="Destino 3">
-        <img src="images/image.jpg" alt="Destino 4">
+    <!-- Galería de imágenes -->
+    <div class="gallery">
+        <div class="gallery-item"><img src="images/image1.jpg" alt="Destino 1"></div>
+        <div class="gallery-item"><img src="images/image2.jpg" alt="Destino 2"></div>
+        <div class="gallery-item"><img src="images/image3.jpg" alt="Destino 3"></div>
+        <div class="gallery-item"><img src="images/image4.jpg" alt="Destino 4"></div>
+        <div class="gallery-item"><img src="images/image1.jpg" alt="Destino 1 (repetido)"></div>
     </div>
 
     <!-- Paquetes turísticos -->
