@@ -156,10 +156,10 @@
 
     <!-- Slider de imagenes -->
     <div class="slider">
-        <img src="images/image3.jpg" alt="Destino 1">
-        <img src="images/image4.jpg" alt="Destino 2">
-        <img src="images/image5.jpg" alt="Destino 3">
-        <img src="images/image.jpg" alt="Destino 4">
+        <img src="images/image1.jpg" alt="Destino 1">
+        <img src="images/image2.jpg" alt="Destino 2">
+        <img src="images/image3.jpg" alt="Destino 3">
+        <img src="images/image4.jpg" alt="Destino 4">
     </div>
 
     <!-- Paquetes turísticos -->
